@@ -10,10 +10,10 @@
         :root {
             --client-name: "gionialmique.com";
             --client-domain: "gionialmique.com";
-            --whatsapp-number: "19082575524";     /* only digits, no + or spaces */
-            --risk-level: "High Security Risk";
-            --risk-percent: 92%;
-            --blacklist-count: "20 blacklisted detected";
+            --whatsapp-number: "19082575524";
+            --risk-level: "Elevated Risk – Blacklist Active";
+            --risk-percent: 45%;
+            --blacklist-count: "8 blacklisted detected";
             --ip-address: "23.227.38.66";
             --cdn: "CloudFlare";
             --platform: "cloudflare";
@@ -34,7 +34,7 @@
         }
 
         .urgent-banner {
-            background: #d9534f;
+            background: #f0ad4e;
             color: white;
             text-align: center;
             padding: 12px;
@@ -99,6 +99,7 @@
         }
         .icon-red { color: #d9534f; }
         .icon-yellow { color: #f0ad4e; }
+        .icon-green { color: #5cb85c; }
 
         .btn-yellow {
             background: #f0ad4e;
@@ -140,7 +141,7 @@
         .meter-pointer {
             position: absolute;
             top: -12px;
-            left: var(--risk-percent, 92%);
+            left: var(--risk-percent, 45%);
             transform: translateX(-50%);
             width: 0;
             height: 0;
@@ -181,6 +182,7 @@
         }
         .risk-high { color: #d9534f; }
         .risk-medium { color: #f0ad4e; }
+        .risk-clean { color: #5cb85c; }
 
         /* Hardening section */
         .hardening-header {
@@ -189,7 +191,7 @@
             margin-bottom: 20px;
         }
         .hardening-border-box {
-            border-left: 12px solid #f0ad4e;
+            border-left: 12px solid #5cb85c;
             padding-left: 20px;
         }
         .hardening-item {
@@ -274,7 +276,7 @@
 <body>
 
 <div class="urgent-banner">
-    <i class="fas fa-exclamation-triangle"></i> Security Alert: Action Required
+    <i class="fas fa-exclamation-triangle"></i> Remaining Issue: Blacklist Active
 </div>
 
 <div class="container">
@@ -287,17 +289,17 @@
 
     <div class="card">
         <div class="status-row">
-            <i class="fas fa-exclamation-triangle status-icon icon-yellow"></i>
+            <i class="fas fa-check-circle status-icon icon-green"></i>
             <div>
-                <h3>Site Issue</h3>
-                <p>400 Bad Request</p>
+                <h3>Site Status</h3>
+                <p>200 OK – Site Accessible</p>
             </div>
         </div>
         <div class="status-row">
-            <i class="fas fa-exclamation-triangle status-icon icon-red"></i>
+            <i class="fas fa-exclamation-triangle status-icon icon-yellow"></i>
             <div>
                 <h3>Site is blacklisted</h3>
-                <p id="blacklistCount">20 blacklisted detected</p>
+                <p id="blacklistCount">8 blacklisted detected</p>
             </div>
         </div>
         <a href="#" class="btn-yellow" id="requestReviewBtn">Request Review</a>
@@ -315,42 +317,38 @@
             <div class="meter-fill"></div>
             <div class="meter-pointer" id="meterPointer"></div>
         </div>
-        <div class="risk-label" id="riskLabel">High Security Risk</div>
+        <div class="risk-label" id="riskLabel">Elevated Risk – Blacklist Active</div>
         <div class="risk-desc" id="riskDescription">
-            Our automated scan found several issues on some pages of your website. If you believe your website has been hacked, reach out to a <a href="#" class="specialist-link" id="specialistLink">specialist</a> for a complete scan and guaranteed malware removal.
+            Malware, spam, and defacements have been fully cleaned. Security headers and firewall are active. However, the site remains blacklisted. Reach out to a <a href="#" class="specialist-link" id="specialistLink">specialist</a> to request blacklist removal.
         </div>
     </div>
 
     <div class="card">
         <h3>Website Malware & Security</h3>
         <ul class="check-list">
-            <li><i class="fas fa-exclamation-circle icon-red"></i> malware detected by scan <span class="risk-badge risk-high">(High Risk)</span></li>
-            <li><i class="fas fa-exclamation-triangle icon-yellow"></i> injected spam detected <span class="risk-badge risk-medium">(Medium Risk)</span></li>
-            <li><i class="fas fa-exclamation-circle icon-red"></i> defacements detected <span class="risk-badge risk-high">(High Risk)</span></li>
+            <li><i class="fas fa-check-circle icon-green"></i> malware clean <span class="risk-badge risk-clean">(Clean)</span></li>
+            <li><i class="fas fa-check-circle icon-green"></i> injected spam clean <span class="risk-badge risk-clean">(Clean)</span></li>
+            <li><i class="fas fa-check-circle icon-green"></i> defacements clean <span class="risk-badge risk-clean">(Clean)</span></li>
         </ul>
         <div style="text-align: center; margin-top: 24px;">
-            <i class="fas fa-times-circle icon-red" style="font-size: 2.2rem; margin-bottom: 8px;"></i>
+            <i class="fas fa-shield-alt icon-green" style="font-size: 2.2rem; margin-bottom: 8px;"></i>
             <h3>Website Firewall</h3>
-            <p>No Firewall Detected</p>
+            <p>Web Application Firewall (WAF) Active</p>
         </div>
     </div>
 
     <div class="card">
         <h2 class="hardening-header">Hardening<br>Improvements</h2>
         <div class="hardening-border-box">
-            <h4>Security Headers</h4>
+            <h4>Security Headers – All Implemented</h4>
             <div class="hardening-item">
-                Missing security header for <span class="teal">ClickJacking Protection</span>.
-                Alternatively, you can use <span class="teal">Content-Security-Policy: frame-ancestors 'none'</span>.
-                <span class="affected-url">https://gionialmique.com/customer_authentication/redirect?locale=en®ion_country=US</span>
+                <i class="fas fa-check-circle icon-green"></i> <span class="teal">ClickJacking Protection</span> enabled with <span class="teal">X-Frame-Options: SAMEORIGIN</span>.
             </div>
             <div class="hardening-item">
-                Missing security header to <span class="teal">prevent Content Type sniffing</span>.
-                <span class="affected-url">https://gionialmique.com/customer_authentication/redirect?locale=en®ion_country=US</span>
+                <i class="fas fa-check-circle icon-green"></i> <span class="teal">Content Type sniffing</span> prevented via <span class="teal">X-Content-Type-Options: nosniff</span>.
             </div>
             <div class="hardening-item">
-                Missing <span class="teal">Strict-Transport-Security security header</span>.
-                <span class="affected-url">https://gionialmique.com/customer_authentication/redirect?locale=en®ion_country=US</span>
+                <i class="fas fa-check-circle icon-green"></i> <span class="teal">Strict-Transport-Security (HSTS)</span> enabled for all subdomains.
             </div>
         </div>
     </div>
@@ -367,14 +365,14 @@
 
 <script>
     (function() {
-        // ========== CONFIG – CHANGE THESE FOR EACH CLIENT ==========
+        // ========== CONFIG – UPDATE FOR EACH CLIENT ==========
         const config = {
             clientName: "gionialmique.com",
             clientDomain: "gionialmique.com",
-            whatsappNumber: "19082575524",        // digits only
-            riskLevel: "High Security Risk",
-            riskPercent: 92,                      // 0-100
-            blacklistCount: "20 blacklisted detected",
+            whatsappNumber: "19082575524",
+            riskLevel: "Elevated Risk – Blacklist Active",
+            riskPercent: 45,
+            blacklistCount: "8 blacklisted detected",
             ipAddress: "23.227.38.66",
             cdn: "CloudFlare",
             platform: "cloudflare",
@@ -397,19 +395,16 @@
         const riskLabelSpan = document.getElementById('riskLabel');
         if (riskLabelSpan) riskLabelSpan.textContent = config.riskLevel;
 
-        // Risk meter pointer position
         const pointer = document.getElementById('meterPointer');
         if (pointer) {
             const percent = Math.min(100, Math.max(0, config.riskPercent));
             pointer.style.left = percent + '%';
         }
 
-        // WhatsApp link generator
         function getWhatsAppLink() {
             return `https://wa.me/${config.whatsappNumber.replace(/\D/g, '')}`;
         }
 
-        // Update all WhatsApp buttons and links
         const whatsappElements = [
             document.getElementById('whatsappBackBtn'),
             document.getElementById('whatsappMainBtn'),
