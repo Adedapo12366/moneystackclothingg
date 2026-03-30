@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Security Audit – gionialmique.com</title>
+    <title>Security Audit – gionialmique.com (Cleaned)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* ========== CLIENT VARIABLES – EDIT HERE ========== */
         :root {
             --client-name: "gionialmique.com";
             --client-domain: "gionialmique.com";
-            --whatsapp-number: "19082575524";
-            --risk-level: "Elevated Risk – Blacklist Active";
-            --risk-percent: 45%;
-            --blacklist-count: "8 blacklisted detected";
+            --whatsapp-number: "19082575524";     /* only digits, no + or spaces */
+            --risk-level: "Security Risk Resolved – Site Clean";
+            --risk-percent: 15%;                   /* low risk */
+            --blacklist-count: "0 blacklists detected – Clean";
             --ip-address: "23.227.38.66";
             --cdn: "CloudFlare";
             --platform: "cloudflare";
@@ -34,7 +34,7 @@
         }
 
         .urgent-banner {
-            background: #f0ad4e;
+            background: #5cb85c;  /* green for resolved */
             color: white;
             text-align: center;
             padding: 12px;
@@ -97,9 +97,9 @@
             font-size: 2.2rem;
             flex-shrink: 0;
         }
+        .icon-green { color: #5cb85c; }
         .icon-red { color: #d9534f; }
         .icon-yellow { color: #f0ad4e; }
-        .icon-green { color: #5cb85c; }
 
         .btn-yellow {
             background: #f0ad4e;
@@ -141,7 +141,7 @@
         .meter-pointer {
             position: absolute;
             top: -12px;
-            left: var(--risk-percent, 45%);
+            left: var(--risk-percent, 15%);
             transform: translateX(-50%);
             width: 0;
             height: 0;
@@ -276,7 +276,7 @@
 <body>
 
 <div class="urgent-banner">
-    <i class="fas fa-exclamation-triangle"></i> Remaining Issue: Blacklist Active
+    <i class="fas fa-check-circle"></i> Security Update: Issues Resolved
 </div>
 
 <div class="container">
@@ -296,10 +296,10 @@
             </div>
         </div>
         <div class="status-row">
-            <i class="fas fa-exclamation-triangle status-icon icon-yellow"></i>
+            <i class="fas fa-shield-alt status-icon icon-green"></i>
             <div>
-                <h3>Site is blacklisted</h3>
-                <p id="blacklistCount">8 blacklisted detected</p>
+                <h3>Blacklist Status</h3>
+                <p id="blacklistCount">0 blacklists detected – Clean</p>
             </div>
         </div>
         <a href="#" class="btn-yellow" id="requestReviewBtn">Request Review</a>
@@ -317,18 +317,18 @@
             <div class="meter-fill"></div>
             <div class="meter-pointer" id="meterPointer"></div>
         </div>
-        <div class="risk-label" id="riskLabel">Elevated Risk – Blacklist Active</div>
+        <div class="risk-label" id="riskLabel">Security Risk Resolved – Site Clean</div>
         <div class="risk-desc" id="riskDescription">
-            Malware, spam, and defacements have been fully cleaned. Security headers and firewall are active. However, the site remains blacklisted. Reach out to a <a href="#" class="specialist-link" id="specialistLink">specialist</a> to request blacklist removal.
+            After a thorough security review, all malware has been removed, blacklists cleared, and security headers implemented. Your site is now fully protected.
         </div>
     </div>
 
     <div class="card">
-        <h3>Website Malware & Security</h3>
+        <h3>Website Security & Malware</h3>
         <ul class="check-list">
-            <li><i class="fas fa-check-circle icon-green"></i> malware clean <span class="risk-badge risk-clean">(Clean)</span></li>
-            <li><i class="fas fa-check-circle icon-green"></i> injected spam clean <span class="risk-badge risk-clean">(Clean)</span></li>
-            <li><i class="fas fa-check-circle icon-green"></i> defacements clean <span class="risk-badge risk-clean">(Clean)</span></li>
+            <li><i class="fas fa-check-circle icon-green"></i> No malware detected <span class="risk-badge risk-clean">(Clean)</span></li>
+            <li><i class="fas fa-check-circle icon-green"></i> No injected spam <span class="risk-badge risk-clean">(Clean)</span></li>
+            <li><i class="fas fa-check-circle icon-green"></i> No defacements detected <span class="risk-badge risk-clean">(Clean)</span></li>
         </ul>
         <div style="text-align: center; margin-top: 24px;">
             <i class="fas fa-shield-alt icon-green" style="font-size: 2.2rem; margin-bottom: 8px;"></i>
@@ -340,7 +340,7 @@
     <div class="card">
         <h2 class="hardening-header">Hardening<br>Improvements</h2>
         <div class="hardening-border-box">
-            <h4>Security Headers – All Implemented</h4>
+            <h4>Security Headers – All Present</h4>
             <div class="hardening-item">
                 <i class="fas fa-check-circle icon-green"></i> <span class="teal">ClickJacking Protection</span> enabled with <span class="teal">X-Frame-Options: SAMEORIGIN</span>.
             </div>
@@ -355,7 +355,7 @@
 
     <div style="margin-bottom: 40px;">
         <a href="#" class="btn-full btn-whatsapp" id="whatsappMainBtn">
-            <i class="fab fa-whatsapp"></i> MESSAGE SPECIALIST ON WHATSAPP
+            <i class="fab fa-whatsapp"></i> CONTACT SECURITY SPECIALIST
         </a>
         <a href="javascript:window.print()" class="btn-full btn-pdf">
             <i class="fas fa-file-pdf"></i> SAVE REPORT AS PDF
@@ -369,10 +369,10 @@
         const config = {
             clientName: "gionialmique.com",
             clientDomain: "gionialmique.com",
-            whatsappNumber: "19082575524",
-            riskLevel: "Elevated Risk – Blacklist Active",
-            riskPercent: 45,
-            blacklistCount: "8 blacklisted detected",
+            whatsappNumber: "19082575524",        // digits only
+            riskLevel: "Security Risk Resolved – Site Clean",
+            riskPercent: 15,                      // 0-100
+            blacklistCount: "0 blacklists detected – Clean",
             ipAddress: "23.227.38.66",
             cdn: "CloudFlare",
             platform: "cloudflare",
@@ -395,21 +395,23 @@
         const riskLabelSpan = document.getElementById('riskLabel');
         if (riskLabelSpan) riskLabelSpan.textContent = config.riskLevel;
 
+        // Risk meter pointer position
         const pointer = document.getElementById('meterPointer');
         if (pointer) {
             const percent = Math.min(100, Math.max(0, config.riskPercent));
             pointer.style.left = percent + '%';
         }
 
+        // WhatsApp link generator
         function getWhatsAppLink() {
             return `https://wa.me/${config.whatsappNumber.replace(/\D/g, '')}`;
         }
 
+        // Update all WhatsApp buttons and links
         const whatsappElements = [
             document.getElementById('whatsappBackBtn'),
             document.getElementById('whatsappMainBtn'),
-            document.getElementById('requestReviewBtn'),
-            document.getElementById('specialistLink')
+            document.getElementById('requestReviewBtn')
         ];
         const waLink = getWhatsAppLink();
         whatsappElements.forEach(el => {
